@@ -1,0 +1,15 @@
+---
+import GalleryDetail from '../../layouts/GalleryDetail.astro';
+import { photos } from '../../data/photos';
+
+export function getStaticPaths() {
+    return photos.map(photo => ({
+        params: { filename: photo.filename.replace(/\s+/g, '-') },
+        props: { photo }
+    }));
+}
+
+const { photo } = Astro.props;
+---
+
+<GalleryDetail photo={photo} />

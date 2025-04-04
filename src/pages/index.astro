@@ -1,0 +1,71 @@
+---
+import Layout from '../layouts/Layout.astro';
+import { photos } from '../data/photos';
+
+const heroPhoto = photos.find(p => p.filename === 'Mom at Northwest Elem (2004).jpg');
+---
+
+<Layout title="Home">
+    <!-- Page Content-->
+    <div class="container px-4 px-lg-5">
+        <!-- Heading Row-->
+        <div class="row gx-4 gx-lg-5 align-items-center my-5">
+            <div class="col-lg-7">
+                <img 
+                    class="img-fluid rounded mb-4 mb-lg-0"
+                    width="300" 
+                    src={`/photos/${heroPhoto?.filename}`} 
+                    alt={heroPhoto?.title} 
+                />
+            </div>
+            <div class="col-lg-5">
+                <h1 class="font-weight-light">In Memory of Rosemary Jenkins</h1>
+                <p class="lead">A beloved educator, mother, and adventurer who touched countless lives through her 32-year teaching career and unwavering dedication to family and community.</p>
+                <a class="btn btn-primary" href="/about">Read Her Story</a>
+            </div>
+        </div>
+        
+        <!-- Theme Cards -->
+        <div class="row gx-4 gx-lg-5">
+            <div class="col-md-4 mb-5">
+                <div class="card h-100">
+                    <img src="/images/education.jpg" class="card-img-top" alt="Education Theme" style="height: 200px; object-fit: cover;" />
+                    <div class="card-body">
+                        <h2 class="card-title">Education</h2>
+                        <p class="card-text">32 years of inspiring young minds at Northwest and Cypress Elementary, touching the lives of countless students through her creative and caring approach to teaching.</p>
+                    </div>
+                    <div class="card-footer"><a class="btn btn-primary btn-sm" href="/education">Learn More</a></div>
+                </div>
+            </div>
+            <div class="col-md-4 mb-5">
+                <div class="card h-100">
+                    <img src="/images/family.jpg" class="card-img-top" alt="Family Theme" style="height: 200px; object-fit: cover;" />
+                    <div class="card-body">
+                        <h2 class="card-title">Family</h2>
+                        <p class="card-text">A loving mother to three sons and cherished grandmother to eight grandchildren, Rosemary's legacy lives on through the values and love she instilled in her family.</p>
+                    </div>
+                    <div class="card-footer"><a class="btn btn-primary btn-sm" href="/family">Learn More</a></div>
+                </div>
+            </div>
+            <div class="col-md-4 mb-5">
+                <div class="card h-100">
+                    <img src="/images/adventure.jpg" class="card-img-top" alt="Adventure Theme" style="height: 200px; object-fit: cover;" />
+                    <div class="card-body">
+                        <h2 class="card-title">Adventure</h2>
+                        <p class="card-text">From her college days in Colorado to visiting family across the country, Rosemary's spirit of adventure and creativity brought joy to all who knew her.</p>
+                    </div>
+                    <div class="card-footer"><a class="btn btn-primary btn-sm" href="/adventure">Learn More</a></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</Layout>
+
+<style>
+    .card {
+        transition: transform 0.2s ease-in-out;
+    }
+    .card:hover {
+        transform: translateY(-5px);
+    }
+</style>

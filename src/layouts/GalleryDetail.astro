@@ -1,0 +1,60 @@
+---
+import Layout from './Layout.astro';
+
+interface Props {
+    photo: {
+        filename: string;
+        title: string;
+        description: string;
+        year: string;
+        category: 'education' | 'family' | 'adventure';
+    };
+}
+
+const { photo } = Astro.props;
+---
+
+<Layout title={photo.title}>
+    <div class="container px-4 px-lg-5 my-5">
+        <div class="row gx-4 gx-lg-5">
+            <div class="col-lg-8">
+                <img 
+                    src={`/photos/${photo.filename}`} 
+                    alt={photo.title}
+                    class="img-fluid rounded shadow"
+                />
+            </div>
+            <div class="col-lg-4">
+                <h1 class="h2 mb-4">{photo.title}</h1>
+                <div class="card">
+                    <div class="card-body">
+                        <p class="card-text">{photo.description}</p>
+                        <ul class="list-unstyled mb-0">
+                            <li class="mb-2">
+                                <strong>Year:</strong> {photo.year}
+                            </li>
+                            <li class="mb-2">
+                                <strong>Category:</strong> 
+                                <span class="text-capitalize">{photo.category}</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="mt-4">
+                    <a href="/gallery" class="btn btn-outline-primary">
+                        <i class="fas fa-arrow-left me-2"></i>
+                        Back to Gallery
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</Layout>
+
+<style>
+    img {
+        max-height: 80vh;
+        width: 100%;
+        object-fit: contain;
+    }
+</style>

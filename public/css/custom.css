@@ -1,0 +1,59 @@
+:root {
+    --bs-primary: #DC3545;
+    --bs-primary-rgb: 220, 53, 69;
+}
+
+.navbar {
+    background-color: #ffffff !important;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.navbar-brand, 
+.navbar-nav .nav-link {
+    color: #DC3545 !important;
+}
+
+.navbar-toggler {
+    border-color: #DC3545;
+}
+
+.navbar-toggler-icon {
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba%28220, 53, 69, 1%29' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e") !important;
+}
+
+.btn-primary {
+    background-color: #DC3545;
+    border-color: #DC3545;
+}
+
+.btn-primary:hover {
+    background-color: #bb2d3b;
+    border-color: #bb2d3b;
+}
+
+footer.bg-dark {
+    background-color: #ffffff !important;
+    border-top: 1px solid rgba(0,0,0,0.1);
+}
+
+footer .text-white {
+    color: #DC3545 !important;
+}
+
+footer a.text-white {
+    color: #DC3545 !important;
+    text-decoration: none;
+    transition: opacity 0.2s ease;
+}
+
+footer a.text-white:hover {
+    opacity: 0.8;
+}
+
+footer .fab.fa-facebook {
+    transition: transform 0.2s ease;
+}
+
+footer .fab.fa-facebook:hover {
+    transform: scale(1.1);
+}
