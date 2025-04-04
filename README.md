@@ -1,20 +1,28 @@
 # Rose Mary Jenkins Memorial Website
-## www.rosemarymemorial.org
+[www.rosemarymemorial.org](https://www.rosemarymemorial.org)
 
-[Product Requirements Document](prd.md)
-[Project To Do List](todo.md)
+## Goal
+I created this solution as a memorial to my dear late mother, Rosemary Jenkins. She was such an important person in my life that I wanted to preserve her memory forever on the web.
 
+I also took the opportunity to learn how to build a website using Astro and leveraging vibe to build the site using my product requirements listed below.
+
+🚀[Product Requirements Document](prd.md) \
+🚀[Project To Do List](todo.md)
+
+
+## Screenshot
+![Screenshot](site.png)
+
+## Tech stack
+- [Astro](https://astro.build/)
+- [Bootstrap](https://getbootstrap.com/)
+- [Puppeteer](https://pptr.dev/)
+
+
+## Solution Setup
 ```sh
 npm create astro@latest -- --template basics
 ```
-
-[![Open in StackBlitz](https://developer.stackblitz.com/img/open_in_stackblitz.svg)](https://stackblitz.com/github/withastro/astro/tree/latest/examples/basics)
-[![Open with CodeSandbox](https://assets.codesandbox.io/github/button-edit-lime.svg)](https://codesandbox.io/p/sandbox/github/withastro/astro/tree/latest/examples/basics)
-[![Open in GitHub Codespaces](https://github.com/codespaces/badge.svg)](https://codespaces.new/withastro/astro?devcontainer_path=.devcontainer/basics/devcontainer.json)
-
-> 🧑‍🚀 **Seasoned astronaut?** Delete this file. Have fun!
-
-![just-the-basics](https://github.com/withastro/astro/assets/2244813/a0a5533c-a856-4198-8470-2d67b1d7c554)
 
 ## 🚀 Project Structure
 
@@ -46,7 +54,3 @@ All commands are run from the root of the project, from a terminal:
 | `npm run preview`         | Preview your build locally, before deploying     |
 | `npm run astro ...`       | Run CLI commands like `astro add`, `astro check` |
 | `npm run astro -- --help` | Get help using the Astro CLI                     |
-
-## 👀 Want to learn more?
-
-Feel free to check [our documentation](https://docs.astro.build) or jump into our [Discord server](https://astro.build/chat).
