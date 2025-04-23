@@ -6,8 +6,8 @@ I created this solution as a memorial to my dear late mother, Rosemary Jenkins. 
 
 I also took the opportunity to learn how to build a website using Astro and leveraging vibe to build the site using my product requirements listed below.
 
-🚀[Product Requirements Document](prd.md) \
-🚀[Project To Do List](todo.md)
+🚀[Product Requirements Document](docs/prd.md) \
+🚀[Project To Do List](docs/todo.md)
 
 
 ## Screenshot
