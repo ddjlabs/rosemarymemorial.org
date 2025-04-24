@@ -1,8 +1,16 @@
 ---
 import Layout from '../layouts/Layout.astro';
-import { photos } from '../data/photos';
+import { fetchPhotos } from '../data/photos';
+import type { Photo } from '../data/photos';
 
-const heroPhoto = photos.find(p => p.filename === 'Mom at Northwest Elem (2004).jpg');
+let photos: Photo[] = [];
+try {
+    photos = await fetchPhotos();
+} catch (error) {
+    console.error('Failed to fetch photos:', error);
+}
+
+const heroPhoto = 'https://pub-f1772f7581504cfaaa654ee125072d6a.r2.dev/gallery/Mom%20at%20Northwest%20Elem%20(2004).jpg'
 ---
 
 <Layout title="Home">
@@ -14,8 +22,8 @@ const heroPhoto = photos.find(p => p.filename === 'Mom at Northwest Elem (2004).
                 <img 
                     class="img-fluid rounded mb-4 mb-lg-0"
                     width="300" 
-                    src={`/photos/${heroPhoto?.filename}`} 
-                    alt={heroPhoto?.title} 
+                    src={heroPhoto} 
+                    alt="Mom at Northwest Elem (2004)" 
                 />
             </div>
             <div class="col-lg-5">

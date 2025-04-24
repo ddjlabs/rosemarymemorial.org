@@ -1,43 +1,34 @@
 ---
 import Layout from './Layout.astro';
+import { fetchPhotos } from '../data/photos';
 
-interface Props {
-    photo: {
-        filename: string;
-        title: string;
-        description: string;
-        year: string;
-        category: 'education' | 'family' | 'adventure';
-    };
+const { fileName } = Astro.props;
+
+// Fetch photos using our updated function
+const galleryPhotos = await fetchPhotos();
+const photo = galleryPhotos.find(item => item.fileName === fileName);
+
+// Handle case where photo is not found
+if (!photo) {
+  return Astro.redirect('/gallery');
 }
-
-const { photo } = Astro.props;
 ---
 
-<Layout title={photo.title}>
+<Layout title={photo.fileName}>
     <div class="container px-4 px-lg-5 my-5">
         <div class="row gx-4 gx-lg-5">
             <div class="col-lg-8">
                 <img 
-                    src={`/photos/${photo.filename}`} 
-                    alt={photo.title}
+                    src={photo.url} 
+                    alt={photo.fileName}
                     class="img-fluid rounded shadow"
                 />
             </div>
             <div class="col-lg-4">
-                <h1 class="h2 mb-4">{photo.title}</h1>
+                <h1 class="h2 mb-4">{photo.fileName}</h1>
                 <div class="card">
                     <div class="card-body">
-                        <p class="card-text">{photo.description}</p>
-                        <ul class="list-unstyled mb-0">
-                            <li class="mb-2">
-                                <strong>Year:</strong> {photo.year}
-                            </li>
-                            <li class="mb-2">
-                                <strong>Category:</strong> 
-                                <span class="text-capitalize">{photo.category}</span>
-                            </li>
-                        </ul>
+                        <p class="card-text">Details about the photo can go here.</p>
                     </div>
                 </div>
                 <div class="mt-4">

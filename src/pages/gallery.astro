@@ -1,63 +1,112 @@
 ---
 import Layout from '../layouts/Layout.astro';
-import { photos } from '../data/photos';
+import { fetchPhotos, type Photo } from '../data/photos';
+
+// Fetch photos using our updated function
+const galleryPhotos = await fetchPhotos();
 
 // Group photos by category
-const photosByCategory = photos.reduce((acc, photo) => {
-    if (!acc[photo.category]) {
-        acc[photo.category] = [];
-    }
-    acc[photo.category].push(photo);
-    return acc;
-}, {} as Record<string, typeof photos>);
+interface PhotosByCategory {
+    [category: string]: Photo[];
+}
 
-const categories = ['family', 'education', 'adventure'] as const;
+const photosByCategory: PhotosByCategory = galleryPhotos.reduce((acc: PhotosByCategory, photo: Photo) => {
+    const category = photo.fileName.split('-')[0]; // Example logic to determine category
+    if (!acc[category]) {
+        acc[category] = [];
+    }
+    acc[category].push(photo);
+    return acc;
+}, {});
+
+const categories = Object.keys(photosByCategory);
 ---
 
 <Layout title="Photo Gallery">
     <div class="container px-4 px-lg-5 my-5">
         <h1 class="text-center mb-5">Photo Gallery</h1>
         
-        {categories.map(category => (
-            <div class="mb-5">
-                <h2 class="text-capitalize mb-4">{category}</h2>
-                <div class="row g-4">
-                    {photosByCategory[category]?.map(photo => (
-                        <div class="col-md-4">
-                            <a 
-                                href={`/gallery/${photo.filename.replace(/\s+/g, '-')}`} 
-                                class="card h-100 text-decoration-none photo-card"
-                            >
-                                <img 
-                                    src={`/photos/${photo.filename}`} 
-                                    class="card-img-top" 
-                                    alt={photo.title}
-                                    style="height: 250px; object-fit: cover;"
-                                />
-                                <div class="card-body">
-                                    <h5 class="card-title">{photo.title}</h5>
-                                    <p class="card-text text-muted small">{photo.year}</p>
-                                </div>
-                            </a>
-                        </div>
-                    ))}
+        {categories.length > 0 ? (
+            categories.map(category => (
+                <div class="mb-5">
+                    <h2 class="text-capitalize mb-4">{category}</h2>
+                    <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4 g-4">
+                        {photosByCategory[category]?.map((photo: Photo) => (
+                            <div class="col">
+                                <a 
+                                    href={`/gallery/${photo.fileName.replace(/\s+/g, '-')}`} 
+                                    class="card h-100 text-decoration-none photo-card"
+                                >
+                                    <div class="image-container">
+                                        <img 
+                                            src={photo.url} 
+                                            class="card-img-top" 
+                                            alt={photo.fileName}
+                                            loading="lazy"
+                                        />
+                                    </div>
+                                    <div class="card-body">
+                                        <h5 class="card-title text-truncate" title={photo.fileName}>{photo.fileName}</h5>
+                                    </div>
+                                </a>
+                            </div>
+                        ))}
+                    </div>
                 </div>
+            ))
+        ) : (
+            <div class="alert alert-info text-center">
+                <p>No photos found. Please make sure your R2 bucket is properly configured and contains images in the gallery/ folder.</p>
             </div>
-        ))}
+        )}
     </div>
 </Layout>
 
 <style>
     .photo-card {
-        transition: transform 0.2s ease-in-out;
+        transition: transform 0.3s ease;
+        box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        height: 100%;
+        display: flex;
+        flex-direction: column;
     }
+    
     .photo-card:hover {
         transform: translateY(-5px);
+        box-shadow: 0 10px 15px rgba(0,0,0,0.1);
     }
-    .photo-card img {
-        transition: opacity 0.2s ease-in-out;
+
+    .image-container {
+        width: 100%;
+        height: 200px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        overflow: hidden;
     }
-    .photo-card:hover img {
-        opacity: 0.9;
+
+    .card-img-top {
+        width: 200px;
+        height: auto;
+        object-fit: contain;
+        max-height: 200px;
+    }
+
+    .card-body {
+        flex: 1 1 auto;
+        padding: 1rem;
+    }
+
+    .card-title {
+        margin-bottom: 0.5rem;
+        font-size: 1rem;
+    }
+
+    /* Ensure responsive behavior */
+    @media (max-width: 576px) {
+        .row-cols-1 > .col {
+            flex: 0 0 100%;
+            max-width: 100%;
+        }
     }
 </style>

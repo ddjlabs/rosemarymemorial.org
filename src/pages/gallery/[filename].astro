@@ -1,15 +1,33 @@
 ---
 import GalleryDetail from '../../layouts/GalleryDetail.astro';
-import { photos } from '../../data/photos';
+import { fetchPhotos } from '../../data/photos';
 
-export function getStaticPaths() {
-    return photos.map(photo => ({
-        params: { filename: photo.filename.replace(/\s+/g, '-') },
-        props: { photo }
-    }));
+// This function runs at build time to generate all possible routes
+export async function getStaticPaths() {
+    try {
+        // Fetch all photos
+        const photos = await fetchPhotos();
+        console.log(`Generating static paths for ${photos.length} photos`);
+        
+        // Generate a path for each photo
+        return photos.map(photo => {
+            // Create a URL-friendly version of the filename
+            const safeFilename = photo.fileName.replace(/\s+/g, '-');
+            
+            return {
+                params: { filename: safeFilename },
+                props: { fileName: photo.fileName }
+            };
+        });
+    } catch (error) {
+        console.error('Error generating gallery static paths:', error);
+        // Return an empty array if there's an error
+        return [];
+    }
 }
 
-const { photo } = Astro.props;
+// This is the data passed from getStaticPaths
+const { fileName } = Astro.props;
 ---
 
-<GalleryDetail photo={photo} />
+<GalleryDetail fileName={fileName} />
