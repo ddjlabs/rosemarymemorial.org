@@ -3,20 +3,41 @@
   "$schema": "node_modules/wrangler/config-schema.json",
   "name": "rosemarymemorial-org",
   "main": "dist/_worker.js",
-  "compatibility_date": "2025-10-27",
+  "compatibility_date": "2025-01-27",
   "compatibility_flags": ["nodejs_compat"],
   "workers_dev": false,
-  "preview_urls": true,
+  "preview_urls": false,
 
+  // Static assets configuration
+  "assets": {
+    "directory": "./dist"
+  },
 
-	// R2 Bucket configuration for photo gallery
-	// Uncomment and configure with your actual R2 bucket details
-    "r2_buckets": [
-        {
-            "binding": "GALLERY",
-            "bucket_name": "rosemarymemorial-images"
-        }
-    ],
+    // Custom domains for the worker (no wildcards or paths allowed)
+  "routes": [
+		{
+			"pattern":"rosemarymemorial.org",
+			"custom_domain": true
+		},
+		{
+			"pattern":"www.rosemarymemorial.org",
+			"custom_domain": true
+		}
+  ],
+
+  // Disable automatic analytics injection
+  "observability": {
+    "enabled": false
+  },
+
+  // R2 Bucket configuration for photo gallery
+  // Uncomment and configure with your actual R2 bucket details
+  "r2_buckets": [
+    {
+      "binding": "GALLERY",
+      "bucket_name": "rosemarymemorial-images"
+    }
+  ],
 
   // Image generation using cloudflare images
   "images": {
