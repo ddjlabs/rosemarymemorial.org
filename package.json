@@ -8,7 +8,9 @@
     "preview": "astro preview",
     "astro": "astro",
     "cf:dev": "npm run build && wrangler dev -c wrangler.jsonc",
-    "cf:deploy": "npm run build && wrangler deploy -c wrangler.jsonc"
+    "cf:deploy": "npm run build && wrangler deploy -c wrangler.jsonc",
+    "secrets:set": "bash scripts/set-secrets.sh",
+    "secrets:list": "bash scripts/list-secrets.sh"
   },
   "dependencies": {
     "@astrojs/cloudflare": "^12.6.10",
