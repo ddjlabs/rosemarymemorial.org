@@ -2,6 +2,8 @@
 import GalleryDetail from '../../layouts/GalleryDetail.astro';
 import { fetchPhotos } from '../../data/photos';
 
+const { fileName } = Astro.props;
+
 // This function runs at build time to generate all possible routes
 export async function getStaticPaths() {
     try {
@@ -26,8 +28,7 @@ export async function getStaticPaths() {
     }
 }
 
-// This is the data passed from getStaticPaths
-const { fileName } = Astro.props;
+export const prerender = true;
 ---
 
 <GalleryDetail fileName={fileName} />

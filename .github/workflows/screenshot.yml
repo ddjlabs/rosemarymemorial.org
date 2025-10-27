@@ -1,40 +1,29 @@
-name: Update Website Screenshot
+name: Deploy to Cloudflare
 
 on:
   push:
-    branches:
-      - main
+    tags:
+      - '*'
 
 jobs:
-  update-screenshot:
+  deploy:
     runs-on: ubuntu-latest
-    
+
     steps:
       - uses: actions/checkout@v4
-      
+
       - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
           node-version: '20'
-          
+
       - name: Install dependencies
-        run: |
-          npm ci
-          
+        run: npm ci
+
       - name: Build website
         run: npm run build
-        
-      - name: Start preview server
-        run: |
-          npm run preview &
-          sleep 5
-          
-      - name: Take screenshot
-        run: node scripts/screenshot.js
-        
-      - name: Commit and push if screenshot changed
-        run: |
-          git config --global user.name 'GitHub Action'
-          git config --global user.email 'action@github.com'
-          git add public/images/site.png
-          git diff --quiet && git diff --staged --quiet || (git commit -m "Update website screenshot [skip ci]" && git push)
+
+      - name: Deploy to Cloudflare
+        run: npm run cf:deploy
+        env:
+          CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
