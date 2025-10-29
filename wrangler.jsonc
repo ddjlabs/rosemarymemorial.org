@@ -43,6 +43,15 @@
   "images": {
     "binding": "IMGGEN"
   },
+  "kv_namespaces": [
+    {
+      "binding": "KV",
+      "id": "f9d3d85fcd67471c9a305aec181494c3",
+      
+      // Optional: preview_id used when running `wrangler dev` for local dev
+      "preview_id": "f9d3d85fcd67471c9a305aec181494c3"
+    }
+  ],
   // Runtime secrets (set via `npm run secrets:set` or Cloudflare dashboard):
   // - RESEND_API_KEY
   // - RESEND_FROM_EMAIL
