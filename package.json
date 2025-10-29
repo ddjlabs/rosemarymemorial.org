@@ -7,6 +7,7 @@
     "build": "node scripts/generate-gallery-inventory.js && astro build",
     "preview": "astro preview",
     "astro": "astro",
+    "deploy": "npm run build && wrangler deploy -c wrangler.jsonc",
     "version:patch": "npm version patch --no-git-tag-version",
     "cf:dev": "npm run build && wrangler dev -c wrangler.jsonc",
     "cf:deploy": "npm run version:patch && npm run build && wrangler deploy -c wrangler.jsonc",
