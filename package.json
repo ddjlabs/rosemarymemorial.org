@@ -1,14 +1,15 @@
 {
   "name": "website",
   "type": "module",
-  "version": "0.0.1",
+  "version": "1.0.2",
   "scripts": {
     "dev": "node scripts/generate-gallery-inventory.js && astro dev",
     "build": "node scripts/generate-gallery-inventory.js && astro build",
     "preview": "astro preview",
     "astro": "astro",
+    "version:patch": "npm version patch --no-git-tag-version",
     "cf:dev": "npm run build && wrangler dev -c wrangler.jsonc",
-    "cf:deploy": "npm run build && wrangler deploy -c wrangler.jsonc",
+    "cf:deploy": "npm run version:patch && npm run build && wrangler deploy -c wrangler.jsonc",
     "secrets:set": "bash scripts/set-secrets.sh",
     "secrets:list": "bash scripts/list-secrets.sh"
   },
