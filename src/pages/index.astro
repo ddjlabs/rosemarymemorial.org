@@ -13,60 +13,77 @@ try {
 const heroPhoto = 'https://pub-f1772f7581504cfaaa654ee125072d6a.r2.dev/gallery/Mom%20at%20Northwest%20Elem%20(2004).jpg'
 ---
 
-<Layout title="Home">
-    <!-- Page Content-->
-    <div class="container px-4 px-lg-5">
-        <!-- Heading Row-->
-        <div class="row gx-4 gx-lg-5 align-items-center my-5">
-            <div class="col-lg-7">
-                <img 
-                    class="img-fluid rounded mb-4 mb-lg-0"
-                    width="300" 
-                    src={heroPhoto} 
-                    alt="Mom at Northwest Elem (2004)" 
-                />
+<Layout title="Home" description="A beloved educator, mother, and adventurer who touched countless lives through her 32-year teaching career and unwavering dedication to family and community.">
+    <main>
+        <!-- Page Content-->
+        <section class="hero-section" aria-labelledby="hero-title">
+            <div class="container px-4 px-lg-5">
+                <div class="row gx-4 gx-lg-5 align-items-center my-5">
+                    <div class="col-lg-7">
+                        <figure class="hero-figure">
+                            <img 
+                                class="img-fluid rounded mb-4 mb-lg-0"
+                                width="300" 
+                                height="400"
+                                src={heroPhoto} 
+                                alt="Rosemary Jenkins teaching at Northwest Elementary School in 2004" 
+                                loading="lazy"
+                            />
+                            <figcaption class="sr-only">Rosemary Jenkins in her classroom at Northwest Elementary School, where she taught for many years</figcaption>
+                        </figure>
+                    </div>
+                    <div class="col-lg-5">
+                        <header>
+                            <h1 id="hero-title" class="font-weight-light">In Memory of Rosemary Jenkins</h1>
+                        </header>
+                        <p class="lead">A beloved educator, mother, and adventurer who touched countless lives through her 32-year teaching career and unwavering dedication to family and community.</p>
+                        <a class="btn btn-primary" href="/obituary" aria-label="Read Rosemary Jenkins' full story">Read Her Story</a>
+                    </div>
+                </div>
             </div>
-            <div class="col-lg-5">
-                <h1 class="font-weight-light">In Memory of Rosemary Jenkins</h1>
-                <p class="lead">A beloved educator, mother, and adventurer who touched countless lives through her 32-year teaching career and unwavering dedication to family and community.</p>
-                <a class="btn btn-primary" href="/obituary">Read Her Story</a>
-            </div>
-        </div>
+        </section>
         
         <!-- Theme Cards -->
-        <div class="row gx-4 gx-lg-5">
-            <div class="col-md-4 mb-5">
+        <section class="themes-section" aria-labelledby="themes-title">
+            <div class="container px-4 px-lg-5">
+                <header class="text-center mb-5">
+                    <h2 id="themes-title">Explore Her Life's Journey</h2>
+                </header>
+                <div class="row gx-4 gx-lg-5">
+            <article class="col-md-4 mb-5">
                 <div class="card h-100">
-                    <img src="/images/education.jpg" class="card-img-top" alt="Education Theme" style="height: 200px; object-fit: cover;" />
+                    <img src="/images/education.jpg" class="card-img-top" alt="Rosemary Jenkins teaching in classroom" width="400" height="200" style="height: 200px; object-fit: cover;" loading="lazy" />
                     <div class="card-body">
-                        <h2 class="card-title">Education</h2>
+                        <h3 class="card-title">Education</h3>
                         <p class="card-text">32 years of inspiring young minds at Northwest and Cypress Elementary, touching the lives of countless students through her creative and caring approach to teaching.</p>
                     </div>
-                    <div class="card-footer"><a class="btn btn-primary btn-sm" href="/education">Learn More</a></div>
+                    <div class="card-footer"><a class="btn btn-primary btn-sm" href="/education" aria-label="Learn about Rosemary's teaching career">Learn More</a></div>
                 </div>
-            </div>
-            <div class="col-md-4 mb-5">
+            </article>
+            <article class="col-md-4 mb-5">
                 <div class="card h-100">
-                    <img src="/images/family.jpg" class="card-img-top" alt="Family Theme" style="height: 200px; object-fit: cover;" />
+                    <img src="/images/family.jpg" class="card-img-top" alt="Rosemary Jenkins with her family" width="400" height="200" style="height: 200px; object-fit: cover;" loading="lazy" />
                     <div class="card-body">
-                        <h2 class="card-title">Family</h2>
+                        <h3 class="card-title">Family</h3>
                         <p class="card-text">A loving mother to three sons and cherished grandmother to eight grandchildren, Rosemary's legacy lives on through the values and love she instilled in her family.</p>
                     </div>
-                    <div class="card-footer"><a class="btn btn-primary btn-sm" href="/family">Learn More</a></div>
+                    <div class="card-footer"><a class="btn btn-primary btn-sm" href="/family" aria-label="Learn about Rosemary's family life">Learn More</a></div>
                 </div>
-            </div>
-            <div class="col-md-4 mb-5">
+            </article>
+            <article class="col-md-4 mb-5">
                 <div class="card h-100">
-                    <img src="/images/adventure.jpg" class="card-img-top" alt="Adventure Theme" style="height: 200px; object-fit: cover;" />
+                    <img src="/images/adventure.jpg" class="card-img-top" alt="Rosemary Jenkins on outdoor adventures" width="400" height="200" style="height: 200px; object-fit: cover;" loading="lazy" />
                     <div class="card-body">
-                        <h2 class="card-title">Adventure</h2>
+                        <h3 class="card-title">Adventure</h3>
                         <p class="card-text">From her college days in Colorado to visiting family across the country, Rosemary's spirit of adventure and creativity brought joy to all who knew her.</p>
                     </div>
-                    <div class="card-footer"><a class="btn btn-primary btn-sm" href="/adventure">Learn More</a></div>
+                    <div class="card-footer"><a class="btn btn-primary btn-sm" href="/adventure" aria-label="Learn about Rosemary's adventures">Learn More</a></div>
+                </div>
+            </article>
                 </div>
             </div>
-        </div>
-    </div>
+        </section>
+    </main>
 </Layout>
 
 <style>

@@ -2,12 +2,17 @@
 import Layout from '../layouts/Layout.astro';
 ---
 
-<Layout title="Adventure">
-    <div class="container px-4 px-lg-5 my-5">
-        <div class="text-center mb-5">
-            <h1>Life's Adventures</h1>
-            <img src="/images/adventure.jpg" alt="Rosemary Jenkins' Adventures" class="img-fluid rounded shadow-sm mb-4" style="max-height: 400px; object-fit: cover;" />
-        </div>
+<Layout title="Adventure" description="Follow Rosemary Jenkins' adventures from her college days in Colorado to visiting family across America, celebrating her spirit of adventure and creativity that brought joy to all." image="/images/adventure.jpg">
+    <main>
+        <article class="adventure-article">
+            <div class="container px-4 px-lg-5 my-5">
+                <header class="text-center mb-5">
+                    <h1>Life's Adventures</h1>
+                    <figure class="hero-figure mb-4">
+                        <img src="/images/adventure.jpg" alt="Rosemary Jenkins enjoying outdoor adventures and travel" class="img-fluid rounded shadow-sm" width="800" height="400" style="max-height: 400px; object-fit: cover;" loading="lazy" />
+                        <figcaption class="sr-only">Rosemary Jenkins during her adventures</figcaption>
+                    </figure>
+                </header>
         <div class="row gx-4 gx-lg-5">
             <div class="col-lg-8">
                 <h2>A Spirit of Adventure: Celebrating Mom’s Love for Life and Creativity</h2>

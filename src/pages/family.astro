@@ -2,12 +2,17 @@
 import Layout from '../layouts/Layout.astro';
 ---
 
-<Layout title="Family">
-    <div class="container px-4 px-lg-5 my-5">
-        <div class="text-center mb-5">
-            <h1>Family Life</h1>
-            <img src="/images/family.jpg" alt="Rosemary Jenkins with Family" class="img-fluid rounded shadow-sm mb-4" style="max-height: 400px; object-fit: cover;" />
-        </div>
+<Layout title="Family" description="Discover Rosemary Jenkins' loving family life as a mother to three sons and grandmother to eight grandchildren, whose legacy lives on through the values and love she instilled." image="/images/family.jpg">
+    <main>
+        <article class="family-article">
+            <div class="container px-4 px-lg-5 my-5">
+                <header class="text-center mb-5">
+                    <h1>Family Life</h1>
+                    <figure class="hero-figure mb-4">
+                        <img src="/images/family.jpg" alt="Rosemary Jenkins surrounded by her loving family" class="img-fluid rounded shadow-sm" width="800" height="400" style="max-height: 400px; object-fit: cover;" loading="lazy" />
+                        <figcaption class="sr-only">Rosemary Jenkins with her family members</figcaption>
+                    </figure>
+                </header>
         <div class="row gx-4 gx-lg-5">
             <div class="col-lg-8">
                 <h2>A Mother's Love in Motion: Honoring Our Mom's Devotion to Her Boys</h2>

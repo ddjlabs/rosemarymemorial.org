@@ -2,12 +2,17 @@
 import Layout from '../layouts/Layout.astro';
 ---
 
-<Layout title="Education">
-    <div class="container px-4 px-lg-5 my-5">
-        <div class="text-center mb-5">
-            <h1>Educational Journey</h1>
-            <img src="/images/education.jpg" alt="Rosemary Jenkins Teaching Career" class="img-fluid rounded shadow-sm mb-4" style="max-height: 400px; object-fit: cover;" />
-        </div>
+<Layout title="Education" description="Learn about Rosemary Jenkins' 32-year teaching career at Northwest Elementary and Cypress Elementary, where she inspired countless young minds through creative and caring education." image="/images/education.jpg">
+    <main>
+        <article class="education-article">
+            <div class="container px-4 px-lg-5 my-5">
+                <header class="text-center mb-5">
+                    <h1>Educational Journey</h1>
+                    <figure class="hero-figure mb-4">
+                        <img src="/images/education.jpg" alt="Rosemary Jenkins teaching in classroom with students" class="img-fluid rounded shadow-sm" width="800" height="400" style="max-height: 400px; object-fit: cover;" loading="lazy" />
+                        <figcaption class="sr-only">Rosemary Jenkins in her teaching environment</figcaption>
+                    </figure>
+                </header>
         <div class="row gx-4 gx-lg-5">
             <div class="col-lg-8">
                 <h2>A Lifelong Educator with Heart</h2>
@@ -52,9 +57,10 @@ import Layout from '../layouts/Layout.astro';
                         </ul>
                     </div>
                 </div>
+                </section>
             </div>
-        </div>
-    </div>
+        </article>
+    </main>
 </Layout>
 
 <style>

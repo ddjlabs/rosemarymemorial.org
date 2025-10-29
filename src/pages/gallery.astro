@@ -20,9 +20,51 @@ const photosByCategory: PhotosByCategory = galleryPhotos.reduce((acc: PhotosByCa
 }, {});
 
 const categories = Object.keys(photosByCategory);
+
+// Generate image schema for structured data
+const imageSchema = galleryPhotos.map(photo => ({
+    "@type": "ImageObject",
+    "contentUrl": photo.url,
+    "name": photo.fileName.replace(/\.[^/.]+$/, "").replace(/-/g, ' '),
+    "description": `Photo of Rosemary Jenkins - ${photo.fileName.replace(/\.[^/.]+$/, "").replace(/-/g, ' ')}`,
+    "uploadDate": photo.lastModified,
+    "author": {
+        "@type": "Person",
+        "name": "Rosemary Jenkins Family"
+    },
+    "publisher": {
+        "@type": "Organization",
+        "name": "In Memory of Rosemary Jenkins",
+        "url": "https://www.rosemarymemorial.org"
+    }
+}));
 ---
 
-<Layout title="Photo Gallery">
+<Layout title="Gallery" description="Browse through cherished memories and photographs of Rosemary Jenkins' life, family, teaching career, and adventures that shaped her remarkable journey." image="/images/gallery-hero.jpg">
+    
+    <!-- Additional Image Schema for Gallery -->
+    <script type="application/ld+json" slot="head">
+    {JSON.stringify({
+        "@context": "https://schema.org",
+        "@type": "ImageGallery",
+        "name": "Rosemary Jenkins Photo Gallery",
+        "description": "A collection of photographs celebrating the life and memories of Rosemary Jenkins",
+        "url": "https://www.rosemarymemorial.org/gallery",
+        "about": {
+            "@type": "Person",
+            "name": "Rosemary Jenkins"
+        },
+        "mainEntity": {
+            "@type": "ItemList",
+            "itemListElement": imageSchema.map((image, index) => ({
+                "@type": "ListItem",
+                "position": index + 1,
+                "item": image
+            }))
+        }
+    }, null, 2)}
+    </script>
+    
     <div class="container px-4 px-lg-5 my-5">
         <h1 class="text-center mb-5">Photo Gallery</h1>
         
@@ -41,12 +83,16 @@ const categories = Object.keys(photosByCategory);
                                         <img 
                                             src={photo.url} 
                                             class="card-img-top" 
-                                            alt={photo.fileName}
+                                            alt={`Photo of Rosemary Jenkins - ${photo.fileName.replace(/\.[^/.]+$/, "").replace(/-/g, ' ')}`}
+                                            title={`Rosemary Jenkins: ${photo.fileName.replace(/\.[^/.]+$/, "").replace(/-/g, ' ')}`}
                                             loading="lazy"
+                                            width="400"
+                                            height="300"
                                         />
                                     </div>
                                     <div class="card-body">
-                                        <h5 class="card-title text-truncate" title={photo.fileName}>{photo.fileName}</h5>
+                                        <h5 class="card-title text-truncate" title={photo.fileName.replace(/\.[^/.]+$/, "").replace(/-/g, ' ')}>{photo.fileName.replace(/\.[^/.]+$/, "").replace(/-/g, ' ')}</h5>
+                                        <p class="card-text small text-muted">Category: {category}</p>
                                     </div>
                                 </a>
                             </div>

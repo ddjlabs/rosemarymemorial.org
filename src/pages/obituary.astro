@@ -2,37 +2,48 @@
 import Layout from '../layouts/Layout.astro';
 ---
 
-<Layout title="Obituary">
-    <div class="container px-4 px-lg-5 my-5">
-        
-        <div class="row gx-4 gx-lg-5">
-            <div class="col-lg-8">
-                <!-- Content will be added here -->
-                <div class="row">
-                    <div class="col-lg-4"><img src="/images/rosemary-jenkins-obit-photo.jpg" alt="Rosemary Jenkins Obituary Photo" class="img-fluid mb-4" width="250" /></div>
+<Layout title="Obituary" description="Read the obituary of Rosemary Desotel Jenkins (1949-2025), a beloved educator who dedicated 32 years to teaching elementary school and touched countless lives." image="/images/rosemary-jenkins-obit-photo.jpg" type="article">
+    <main>
+        <article class="obituary-article">
+            <div class="container px-4 px-lg-5 my-5">
+                <header class="text-center mb-5">
+                    <h1>Obituary</h1>
+                </header>
+                
+                <div class="row gx-4 gx-lg-5">
                     <div class="col-lg-8">
-                    <h2>Rosemary Desotel Jenkins</h2>
-                    <h3>October 27, 1949 – February 10, 2025</h3>
+                        <section class="obituary-content">
+                            <div class="row">
+                                <div class="col-lg-4">
+                                    <figure class="obituary-photo">
+                                        <img src="/images/rosemary-jenkins-obit-photo.jpg" alt="Rosemary Desotel Jenkins - Portrait photograph" class="img-fluid mb-4" width="250" height="300" loading="lazy" />
+                                        <figcaption class="sr-only">Portrait of Rosemary Desotel Jenkins</figcaption>
+                                    </figure>
+                                </div>
+                                <div class="col-lg-8">
+                                    <header>
+                                        <h2>Rosemary Desotel Jenkins</h2>
+                                        <h3>October 27, 1949 – February 10, 2025</h3>
+                                    </header>
                         <p>Rosemary Jenkins, 75, of Central City, Iowa, passed away peacefully on February 10, 2025. 
                         Born on October 27, 1949, to Bob and Kate Desotel (both deceased), Rosemary grew up in Central City, Iowa, surrounded by a loving family. 
                         She was a cherished sister to Shirley (Linc) Champagne, Kay (Brad) Clark, Mike (Tonda) Desotel, and the late John (Susan) Desotel.</p>
 
                         <p>Rosemary dedicated her life to education, earning a Bachelor's degree in Arts from the University of Northern Iowa and a Master's degree in Education from National Louis University. Her teaching career spanned over 32 years, touching countless young lives at elementary schools in Davenport Iowa,  Hudson Florida (Northwest Elem), and Cypress Elementary in New Port Richey, Florida.</p>
+                        
+                                </div>
+                            </div>
+                            
+                            <div class="mt-4">
+                                <p>She was a devoted mother to her three sons, Doug (Sarah) Jenkins, Daniel (Danielle) Jenkins, and Mark Jenkins. Her love and pride extended to her treasured grandchildren: Alina, Keegan, Ashley, Emma, Lillian, Katherine, Charlotte, and Christopher.</p>
 
-                    </div>
-                </div>
-                
+                                <p>Rosemary embraced life with an adventurous and warm spirit, finding joy from the rolling prairies of home in Iowa, to the peaceful mountain views of Colorado, and the bright sunny skies of Florida. Above all, she found purpose in her family—her sons, siblings, and grandchildren were the center of her world.</p>
 
+                                <p>She will be deeply missed and forever remembered for her kind heart, unwavering dedication to education, and boundless love for her family.</p>
 
-
-<p>She was a devoted mother to her three sons, Doug (Sarah) Jenkins, Daniel (Danielle) Jenkins, and Mark Jenkins. Her love and pride extended to her treasured grandchildren: Alina, Keegan, Ashley, Emma, Lillian, Katherine, Charlotte, and Christopher.</p>
-
-<p>Rosemary embraced life with an adventurous and warm spirit, finding joy from the rolling prairies of home in Iowa, to the peaceful mountain views of Colorado, and the bright sunny skies of Florida. Above all, she found purpose in her family—her sons, siblings, and grandchildren were the center of her world.</p>
-
-<p>She will be deeply missed and forever remembered for her kind heart, unwavering dedication to education, and boundless love for her family.
-
-<p>A memorial service to honor Rosemary’s life will be held at Cedar Memorial on Saturday, June 28, 2025 in Cedar Rapids.
-</p>
+                                <p>A memorial service to honor Rosemary's life will be held at Cedar Memorial on Saturday, June 28, 2025 in Cedar Rapids.</p>
+                            </div>
+                        </section>
             </div>
             <div class="col-lg-4">
                 <div class="card mb-4">
@@ -49,7 +60,10 @@ import Layout from '../layouts/Layout.astro';
                         </a>
                     </div>
                 </div>
+            </aside>
             </div>
         </div>
-    </div>
+            </div>
+        </article>
+    </main>
 </Layout>
