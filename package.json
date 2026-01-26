@@ -15,18 +15,24 @@
     "secrets:list": "bash scripts/list-secrets.sh"
   },
   "dependencies": {
-    "@astrojs/cloudflare": "^12.6.10",
-    "@astrojs/mdx": "^4.3.10",
-    "@aws-sdk/client-s3": "^3.796.0",
-    "@aws-sdk/s3-request-presigner": "^3.796.0",
-    "astro": "^5.15.4",
-    "bootstrap": "^5.2.3",
-    "dotenv": "^16.5.0",
-    "puppeteer": "^24.6.0"
+    "@astrojs/cloudflare": "^12.6.12",
+    "@astrojs/mdx": "^4.3.13",
+    "@aws-sdk/client-s3": "^3.975.0",
+    "@aws-sdk/s3-request-presigner": "^3.975.0",
+    "astro": "^5.16.15",
+    "bootstrap": "^5.3.8",
+    "dotenv": "^17.2.3",
+    "puppeteer": "^24.36.0"
+  },
+  "overrides": {
+    "wrangler": "^4.60.0",
+    "miniflare": "^4.20260120.0",
+    "undici": "^7.19.1",
+    "mdast-util-to-hast": "^13.2.1"
   },
   "devDependencies": {
     "@types/node-fetch": "^2.6.12",
-    "sharp": "^0.33.5",
-    "wrangler": "^4.45.1"
+    "sharp": "^0.34.5",
+    "wrangler": "^4.60.0"
   }
 }

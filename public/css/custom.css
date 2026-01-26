@@ -139,3 +139,8 @@ footer .fab.fa-facebook {
 footer .fab.fa-facebook:hover {
     transform: scale(1.1);
 }
+
+.theme-card-img {
+    height: 200px;
+    object-fit: cover;
+}
