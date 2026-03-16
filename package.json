@@ -24,16 +24,17 @@
     "dotenv": "^17.3.1"
   },
   "overrides": {
-    "wrangler": "^4.69.0",
+    "wrangler": "^4.74.0",
     "miniflare": "^4.20260120.0",
     "undici": "^7.19.1",
     "mdast-util-to-hast": "^13.2.1",
-    "fast-xml-parser": "^5.3.6"
+    "fast-xml-parser": "^5.3.6",
+    "yauzl": "^3.2.1"
   },
   "devDependencies": {
     "@types/node-fetch": "^2.6.12",
     "puppeteer": "^24.37.5",
     "sharp": "^0.34.5",
-    "wrangler": "^4.69.0"
+    "wrangler": "^4.74.0"
   }
 }
